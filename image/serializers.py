@@ -12,9 +12,9 @@ class UploadImageSerializer(serializers.Serializer):
     url = serializers.URLField(required=False)
     file = serializers.ImageField(required=False)
 
-    def validate(self, attrs):
-        if not self.validated_data['url'] and not self.validated_data['file']:
-            raise serializers.ValidationError('no data for file upload')
+    # def validate(self, attrs):
+    #     if not self.validated_data['url'] and not self.validated_data['file']:
+    #         raise serializers.ValidationError('no data for file upload')
 
 
 class UpdateImageSerializer(serializers.ModelSerializer):
