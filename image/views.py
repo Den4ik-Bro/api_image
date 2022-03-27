@@ -66,7 +66,6 @@ class ImageViewSet(ModelViewSet):
                     height=size[1],
                     parent_picture=instance
                 )
-                return Response(self.serializer_class(new_instance).data, status.HTTP_201_CREATED)
             else:
                 image = Image.open(str(instance.picture))
                 new_image = image.resize(size)
@@ -79,5 +78,5 @@ class ImageViewSet(ModelViewSet):
                     height=size[1],
                     parent_picture=instance
                 )
-                return Response(self.serializer_class(new_instance).data, status.HTTP_201_CREATED)
+            return Response(self.serializer_class(new_instance).data, status.HTTP_201_CREATED)
         return Response(serializer.errors)
