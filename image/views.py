@@ -45,7 +45,7 @@ class ImageViewSet(ModelViewSet):
                     height=image.size[1],
                 )
             image_data = self.serializer_class(picture).data
-            return Response(image_data)
+            return Response(image_data, status.HTTP_201_CREATED)
         return Response(serializer.errors)
 
     @action(detail=True, methods=['post'])
