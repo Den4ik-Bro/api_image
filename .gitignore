@@ -1,8 +1,8 @@
 *.sqlite3
-media/*
+
 *.pyc
 **/__pycache__/*
-**/migrations/*
+
 <<<<<<< HEAD
 *.log
 =======
