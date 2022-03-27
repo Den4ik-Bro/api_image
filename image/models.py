@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models import CASCADE
+from django.db.models import PROTECT
 
 
 class Image(models.Model):
@@ -8,7 +8,7 @@ class Image(models.Model):
     url = models.CharField(max_length=200, verbose_name='ссылка', null=True, blank=True)
     width = models.PositiveSmallIntegerField(verbose_name='ширина')
     height = models.PositiveSmallIntegerField(verbose_name='высота')
-    parent_picture = models.ForeignKey('self', on_delete=CASCADE, null=True, blank=True)
+    parent_picture = models.ForeignKey('self', on_delete=PROTECT, null=True, blank=True, related_name='descendants')
 
     class Meta:
         verbose_name = 'Картинка'
